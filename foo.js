@@ -10,7 +10,7 @@
 // 	-strings?
 //	3. What are the outputs?
 //  the addition of both numbers
-//	4. Can the putputs be determined frmo the input or do i have enough info to solve the problem?
+//	4. Can the outputs be determined frmo the input or do i have enough info to solve the problem?
 // 	yes
 //	5. How should i label the important pieces of data that are a part of the problem?
 // node
@@ -19,7 +19,6 @@
 
 const charCount = (str) => {
     const count = {};
-
     if (str === "" || typeof str !== "string")
         return console.log({ Error: "Invalid input." });
 
@@ -29,7 +28,6 @@ const charCount = (str) => {
             count[char] = ++count[char] || 1;
         }
     }
-
     console.log(count);
 };
 
@@ -331,4 +329,37 @@ const sum_of_array = (arr) => {
 
 // sum_of_array([1, 2, 3, 10]); // -> 16:
 
-const reverse = ()
+const reverse = (str) => {
+    return str.split("").reverse().join("");
+};
+
+// const reversed = reverse("hola")
+// console.log(reversed)
+
+const addUpTo = (n) => {
+    return (n * (n + 1)) / 2;
+};
+
+// const sumUpTo = addUpTo(6)
+// console.log(sumUpTo)
+
+// 
+
+const countChars = (str) => {
+    const counter = {}
+    const count = char => {
+        if(counter[char]) counter[char] = ++counter[char]
+        else counter[char] = 1
+    }
+
+    str
+        .replace(/[^a-z0-9]/gi, '') // remove non-alphanumeric chars
+        .toLowerCase()
+        .split("")
+        .forEach(count)
+
+    console.table(counter)
+}
+
+countChars("piripitiflautica")
+
