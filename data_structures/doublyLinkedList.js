@@ -123,12 +123,12 @@ class DoblyLinkedList {
     }
 
     insert(val, i) {
-        if (i < 0 || i > this.length) return null
+        if (i < 0 || i >= this.length) return null
         if(i === 0) return this.unshift(val)
         if(i === this.length) return this.push(val)
 
-        const prev = this.get(i)
-        const next = prev.next
+        const next = this.get(i)
+        const prev = next.prev
         const node = new Node(val)
 
         prev.updateNext(node)
@@ -160,3 +160,28 @@ class DoblyLinkedList {
         return deleted
     }
 }
+
+const list = new DoblyLinkedList();
+const add = (val) => list.push(val);
+const myStuff = [
+    "mice",
+    "keyboard",
+    "water bottle",
+    "phone",
+    "taquitos",
+    "pizza",
+];
+myStuff.forEach(add);
+
+// <------ Playground ------
+// list.unshift("taquitos")
+// ------------------------>
+
+list.traverse();
+console.log(4);
+list.get(4);
+
+list.set("sneakers", 0);
+list.remove(4)
+list.insert("mic", 4)
+list.traverse();
